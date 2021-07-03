@@ -229,26 +229,26 @@ router.get("/select-homepagecard", async (req, res, next) => {
   // if (!Object.keys(req.query).length) executeSQL(User.getAllUserSQL(), res);
   // else executeSQL(User.getUserByQuerySQL(req.query), res);
 });
+
 //顯示全部
 router.get('/', (req, res, next) => {
-  //console.log(req.query)
+  console.log(req.query, 123)
 
-  if (!Object.keys(req.query).length) 
-  executeSQL(Event.getAllEventSQL(), res)
+  if (!Object.keys(req.query).length)
+    executeSQL(Event.getAllEventSQL(), res)
   // else 
-  executeSQL(Event.getEventByQuerySQL(req.query), res)
+  //executeSQL(Event.getEventByQuerySQL(req.query), res)
 })
 
+router.get('/event-category', (req, res, next) => {
+  console.log(123)
+  executeSQL(Event.getCategoryEventSQL(), res)
+
+})
 
 // get 處理獲取單一筆的會員，使用id
 router.get('/:id', (req, res, next) => {
-  executeSQL(Event.getAllEventSQL(req.params.id), res, 'get', false)
-})
-
-router.get('/eventCategory', (req, res, next) => {
-  
-  executeSQL(Event.getCategoryEventSQL(), res)
- 
+  executeSQL(Event.getEventByIdSQL(req.params.id), res, 'get', false)
 })
 
 

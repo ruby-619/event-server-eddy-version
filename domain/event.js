@@ -66,15 +66,14 @@ class Event {
     let sql = `SELECT * FROM event`
     return sql
   }
+
+  //測試成功：分類
   static getCategoryEventSQL() {
-    let sql = "SELECT * FROM `event` WHERE `eventCategory`='手作'"
+    let sql = `SELECT * FROM EVENT WHERE \`eventCategory\` LIKE '%手作%'`
     return sql
   }
 
-  static getPartEventSQL() {
-    let sql = `SELECT * FROM EVENT LIMIT 5`
-    return sql
-  }
+  
 
 }
 
