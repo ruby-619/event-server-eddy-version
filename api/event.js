@@ -245,6 +245,12 @@ router.get('/:id', (req, res, next) => {
   executeSQL(Event.getAllEventSQL(req.params.id), res, 'get', false)
 })
 
+router.get('/eventCategory', (req, res, next) => {
+  
+  executeSQL(Event.getCategoryEventSQL(), res)
+ 
+})
+
 
 
 
